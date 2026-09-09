@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Raise Complaint - Uday Boys Hostel</title>
+
+    <link rel="stylesheet"
+          href="CSS/public-style.css">
+
+    <style>
+
+        .complaint-page {
+            min-height: 650px;
+            padding: 70px 0;
+            background: #f6fbff;
+        }
+
+        .complaint-wrapper {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .complaint-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        .complaint-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #fff0e9;
+            display: grid;
+            place-items: center;
+            font-size: 35px;
+        }
+
+        .complaint-intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #52667e;
+        }
+
+        .complaint-form label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: 700;
+            color: #173d68;
+        }
+
+        .complaint-form input,
+        .complaint-form textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #ccd7e2;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        .complaint-form input:focus,
+        .complaint-form textarea:focus {
+            outline: none;
+            border-color: #f0521d;
+        }
+
+        .complaint-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .complaint-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+
+        #complaintMessage {
+            display: none;
+            padding: 14px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .success-message {
+            display: block !important;
+            background: #e7f8ee;
+            color: #16834c;
+        }
+
+        .error-message {
+            display: block !important;
+            background: #ffe8e5;
+            color: #c93223;
+        }
+
+        .complaint-note {
+            margin-top: 20px;
+            background: #fff8ed;
+            padding: 15px;
+            border-radius: 8px;
+            color: #52667e;
+            text-align: center;
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <span>
+            Welcome to Uday Boys Hostel
+        </span>
+    </div>
+
+</div>
+
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+
+        <a href="index.html"
+           class="brand">
+
+            <div class="brand-logo">
+                🏠
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+
+                    <span>UDAY</span>
+                    BOYS HOSTEL
+
+                </div>
+
+                <div class="tagline">
+
+                    "A Home Away from Home for Young Achievers"
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+
+            ☰
+
+        </button>
+
+
+        <nav id="mainNav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="facilities.html">
+                Facilities
+            </a>
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            <a href="complaint.html"
+               class="active">
+
+                Complaints
+
+            </a>
+
+            <a href="enquiry.html">
+                Enquiry
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- COMPLAINT FORM -->
+
+<section class="complaint-page">
+
+    <div class="container">
+
+        <div class="complaint-wrapper">
+
+
+            <div class="section-heading">
+
+                <span>RAISE A</span> COMPLAINT
+
+                <p>
+                    Tell us about any problem you are facing
+                </p>
+
+            </div>
+
+
+            <div class="complaint-card">
+
+
+                <div class="complaint-icon">
+                    📢
+                </div>
+
+
+                <p class="complaint-intro">
+
+                    Submit your complaint and our hostel
+                    management will review it.
+
+                </p>
+
+
+                <div id="complaintMessage"></div>
+
+
+                <form
+                    id="publicComplaintForm"
+                    class="complaint-form">
+
+
+                    <label for="studentId">
+
+                        Student ID *
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="studentId"
+                        placeholder="Enter your Student ID"
+                        min="1"
+                        required>
+
+
+
+                    <label for="subject">
+
+                        Complaint Subject *
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        placeholder="Example: WiFi Problem"
+                        maxlength="100"
+                        required>
+
+
+
+                    <label for="description">
+
+                        Description *
+
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Describe the problem you are facing..."
+                        maxlength="500"
+                        required></textarea>
+
+
+
+                    <button
+                        type="submit"
+                        id="submitComplaintButton"
+                        class="btn btn-primary complaint-submit">
+
+                        📢 Submit Complaint
+
+                    </button>
+
+
+                </form>
+
+
+                <div class="complaint-note">
+
+                    🔒 Your complaint will be sent directly
+                    to Uday Boys Hostel management.
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            🏠
+
+            <strong>
+
+                UDAY
+                <span>BOYS HOSTEL</span>
+
+            </strong>
+
+            <small>
+
+                "A Home Away from Home for Young Achievers"
+
+            </small>
+
+        </div>
+
+
+        <div class="footer-navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            |
+
+            <a href="facilities.html">
+                Facilities
+            </a>
+
+            |
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            |
+
+            <a href="complaint.html">
+                Complaints
+            </a>
+
+            |
+
+            <a href="enquiry.html">
+                Enquiry
+            </a>
+
+            |
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            |
+
+            <a href="login.html">
+                Admin Login
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Uday Boys Hostel.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+<script src="JS/public-complaint.js"></script>
+
+<script src="JS/public.js"></script>
+
+
+</body>
+
+</html>

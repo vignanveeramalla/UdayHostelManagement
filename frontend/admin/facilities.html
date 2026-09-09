@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Facilities-Uday Hostel</title>
+
+    <link rel="stylesheet"
+          href="CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>Uday Hostel</h2>
+
+            <p>Management System</p>
+
+        </div>
+
+
+        <nav>
+
+
+            <a href="dashboard.html">
+
+                🏠 Dashboard
+
+            </a>
+
+
+            <a href="students.html">
+
+                👨🏻‍🎓 Students
+
+            </a>
+
+
+            <a href="rooms.html">
+
+                🏢 Rooms
+
+            </a>
+
+
+            <a href="payments.html">
+
+                💰 Payments
+
+            </a>
+
+
+            <a href="complaints.html">
+
+                📢 Complaints
+
+            </a>
+
+
+            <a href="enquiries.html">
+
+                ✉ Enquiries
+
+            </a>
+
+
+            <a href="facilities.html"
+               class="active">
+
+                🛠️ Facilities
+
+            </a>
+
+
+            <a href="admin.html">
+
+                👤 Admin
+
+            </a>
+
+
+        </nav>
+
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            ➜🚪 Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="top-header">
+
+
+            <div>
+
+                <h1>Facilities</h1>
+
+                <p>
+                    Facility Management
+                </p>
+
+            </div>
+
+
+            <a href="admin.html" class="admin-info">
+                <span>Admin</span>
+            </a>
+
+        </header>
+
+
+
+        <!-- ================= MESSAGE ================= -->
+
+        <div id="message"></div>
+
+
+
+        <!-- ================= FACILITIES SECTION ================= -->
+
+        <section class="student-section">
+
+
+            <div class="section-header">
+
+
+                <h2>
+
+                    All Facilities
+
+                </h2>
+
+
+                <button
+                    id="addFacilityButton"
+                    onclick="showFacilityForm()">
+
+                    + Add Facility
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================= SEARCH AND FILTER ================= -->
+
+            <div class="facility-controls">
+
+
+                <select
+                    id="statusFilter"
+                    onchange="filterFacilities()">
+
+
+                    <option value="">
+
+                        All Facilities
+
+                    </option>
+
+
+                    <option value="AVAILABLE">
+
+                        Available
+
+                    </option>
+
+
+                    <option value="UNAVAILABLE">
+
+                        Unavailable
+
+                    </option>
+
+
+                </select>
+
+
+
+                <input
+                    type="text"
+                    id="searchName"
+                    placeholder="Search facility...">
+
+
+
+                <button
+                    type="button"
+                    onclick="searchFacilities()">
+
+                    Search
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="loadFacilities()">
+
+                    Reset
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================= FACILITIES TABLE ================= -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Facility</th>
+
+                            <th>Description</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="facilityTableBody">
+
+
+                        <tr>
+
+                            <td colspan="5">
+
+                                Loading facilities....
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= ADD / EDIT FACILITY FORM ================= -->
+
+        <div
+            id="facilityFormContainer"
+            class="form-container"
+            style="display:none;">
+
+
+            <h2 id="formTitle">
+
+                Add Facility
+
+            </h2>
+
+
+
+            <form id="facilityForm">
+
+
+                <!-- Hidden Facility ID -->
+
+                <input
+                    type="hidden"
+                    id="facilityId">
+
+
+
+                <!-- Facility -->
+
+                <label>
+
+                    Facility
+
+                </label>
+
+
+                <select
+                    id="facilityName"
+                    required>
+
+
+                    <option value="">
+
+                        Select facility
+
+                    </option>
+
+
+                    <option value="WIFI">
+
+                        WIFI
+
+                    </option>
+
+
+                    <option value="LAUNDRY">
+
+                        LAUNDRY
+
+                    </option>
+
+
+                    <option value="MESS">
+
+                        MESS
+
+                    </option>
+
+
+                    <option value="CCTV">
+
+                        CCTV
+
+                    </option>
+
+
+                    <option value="MINERAL WATER">
+
+                        MINERAL WATER
+
+                    </option>
+
+
+                    <option value="DAILY ROOM CLEANING">
+
+                        DAILY ROOM CLEANING
+
+                    </option>
+
+
+                </select>
+
+
+
+                <!-- Description -->
+
+                <label>
+
+                    Description
+
+                </label>
+
+
+                <textarea
+                    id="facilityDescription"
+                    placeholder="Enter facility description"
+                    required></textarea>
+
+
+
+                <!-- Status -->
+
+                <label>
+
+                    Status
+
+                </label>
+
+
+                <select
+                    id="facilityStatus"
+                    required>
+
+
+                    <option value="">
+
+                        Select status
+
+                    </option>
+
+
+                    <option value="AVAILABLE">
+
+                        AVAILABLE
+
+                    </option>
+
+
+                    <option value="UNAVAILABLE">
+
+                        UNAVAILABLE
+
+                    </option>
+
+
+                </select>
+
+
+
+                <!-- Save Button -->
+
+                <button
+                    type="submit"
+                    id="facilitySubmitButton">
+
+                    Save Facility
+
+                </button>
+
+
+
+                <!-- Cancel Button -->
+
+                <button
+                    type="button"
+                    onclick="hideFacilityForm()">
+
+                    Cancel
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="JS/facilities.js"></script>
+
+
+</body>
+
+</html>

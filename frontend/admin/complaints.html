@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Complaints-Uday Hostel</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>Uday Hostel</h2>
+
+            <p>Management System</p>
+
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="students.html">
+                👨🏻‍🎓 Students
+            </a>
+
+            <a href="rooms.html">
+                🏢 Rooms
+            </a>
+
+            <a href="payments.html">
+                💰 Payments
+            </a>
+
+            <a href="complaints.html" class="active">
+                📢 Complaints
+            </a>
+
+            <a href="enquiries.html">
+                ✉ Enquiries
+            </a>
+
+            <a href="facilities.html">
+                🛠️ Facilities
+            </a>
+
+            <a href="admin.html">
+                👤 Admin
+            </a>
+
+        </nav>
+
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            ➜🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>Complaints</h1>
+
+                <p>Complaint Management</p>
+
+            </div>
+
+
+            <a href="admin.html" class="admin-info">
+                <span>Admin</span>
+            </a>
+
+        </header>
+
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+
+
+        <!-- ================= ALL COMPLAINTS ================= -->
+
+        <section class="student-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>All Complaints</h2>
+
+                    <p>
+                        View and manage student complaints
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= FILTER ================= -->
+
+            <div class="complaint-filters">
+
+
+                <div>
+
+                    <label>
+                        Search by Student ID
+                    </label>
+
+                    <input
+                        type="number"
+                        id="searchStudentId"
+                        placeholder="Enter student ID">
+
+                </div>
+
+
+                <button
+                    onclick="searchComplaintsByStudent()">
+
+                    Search
+
+                </button>
+
+
+                <button
+                    onclick="loadComplaints()">
+
+                    Show All
+
+                </button>
+
+
+
+                <div>
+
+                    <label>
+                        Filter by Status
+                    </label>
+
+                    <select
+                        id="statusFilter"
+                        onchange="filterByStatus()">
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="OPEN">
+                            OPEN
+                        </option>
+
+                        <option value="IN_PROGRESS">
+                            IN_PROGRESS
+                        </option>
+
+                        <option value="RESOLVED">
+                            RESOLVED
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= TABLE ================= -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Student ID</th>
+
+                            <th>Subject</th>
+
+                            <th>Description</th>
+
+                            <th>Date</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="complaintTableBody">
+
+                        <tr>
+
+                            <td colspan="7">
+
+                                Loading complaints...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+ 
+<!-- ================= UPDATE STATUS MODAL ================= -->
+
+<div id="statusModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Update Complaint Status</h2>
+
+            <span
+                class="close"
+                onclick="closeStatusModal()">
+
+                &times;
+
+            </span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Complaint ID</label>
+
+            <input
+                type="text"
+                id="statusComplaintId"
+                readonly>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Current Status</label>
+
+            <input
+                type="text"
+                id="currentComplaintStatus"
+                readonly>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>New Status</label>
+
+            <select id="newComplaintStatus">
+
+                <option value="OPEN">
+                    OPEN
+                </option>
+
+                <option value="IN_PROGRESS">
+                    IN_PROGRESS
+                </option>
+
+                <option value="RESOLVED">
+                    RESOLVED
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                onclick="closeStatusModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="saveComplaintStatus()">
+
+                Update Status
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="JS/complaints.js"></script>
+
+</body>
+
+</html>

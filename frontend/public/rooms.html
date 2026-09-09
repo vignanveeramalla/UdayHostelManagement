@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rooms - Uday Boys Hostel</title>
+
+    <link rel="stylesheet"
+          href="CSS/public-style.css">
+
+    <style>
+
+        .rooms-page {
+            padding: 70px 0;
+            background: #f6fbff;
+        }
+
+        .room-info-text {
+            max-width: 750px;
+            margin: -20px auto 40px;
+            text-align: center;
+            color: #52667e;
+        }
+
+        .public-room-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .public-room-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+            transition: 0.25s;
+        }
+
+        .public-room-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .room-top {
+            padding: 25px;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                #e8f6ff,
+                #d8ecfa
+            );
+        }
+
+        .room-number {
+            font-size: 38px;
+            font-weight: 900;
+            color: #073668;
+        }
+
+        .room-label {
+            color: #52667e;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .room-details {
+            padding: 22px;
+        }
+
+        .room-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid #edf1f5;
+            font-size: 14px;
+        }
+
+        .room-detail:last-child {
+            border-bottom: none;
+        }
+
+        .room-detail strong {
+            color: #173d68;
+        }
+
+        .room-status {
+            display: inline-block;
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .room-available {
+            background: #e5f8ed;
+            color: #16834c;
+        }
+
+        .room-full {
+            background: #ffe8e5;
+            color: #d93625;
+        }
+
+        .room-action {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .rooms-loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            grid-column: 1 / -1;
+        }
+
+        .rooms-error {
+            text-align: center;
+            padding: 50px;
+            color: #d93625;
+            grid-column: 1 / -1;
+        }
+
+        .room-note {
+            margin-top: 35px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #fff8ed;
+            text-align: center;
+            color: #52667e;
+        }
+
+        @media (max-width: 900px) {
+
+            .public-room-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .public-room-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <span>
+            Welcome to Uday Boys Hostel
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+
+        <a href="index.html"
+           class="brand">
+
+            <div class="brand-logo">
+                🏠
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+
+                    <span>UDAY</span>
+                    BOYS HOSTEL
+
+                </div>
+
+                <div class="tagline">
+
+                    "A Home Away from Home for Young Achievers"
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+
+            ☰
+
+        </button>
+
+
+
+        <nav id="mainNav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="facilities.html">
+                Facilities
+            </a>
+
+            <a href="rooms.html"
+               class="active">
+
+                Rooms
+
+            </a>
+
+            <a href="complaint.html">
+                Complaints
+            </a>
+
+            <a href="enquiry.html">
+                Enquiry
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= ROOMS ================= -->
+
+<section class="rooms-page">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>OUR</span> ROOMS
+
+            <p>
+                Comfortable accommodation for young achievers
+            </p>
+
+        </div>
+
+
+        <p class="room-info-text">
+
+           Explore our hostel rooms and contact us
+    for more information.
+
+        </p>
+
+
+
+        <!-- ================= ROOM GRID ================= -->
+
+        <div
+            id="roomGrid"
+            class="public-room-grid">
+
+            <div class="rooms-loading">
+
+                Loading rooms...
+
+            </div>
+
+        </div>
+
+
+
+        <div class="room-note">
+
+            💡 Room availability is not displayed on this public website.
+    Please contact us for current room information.
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     INTERESTED IN A ROOM
+===================================================== -->
+
+<section class="room-interest-section">
+
+    <div class="room-interest-content">
+
+        <h2>
+            INTERESTED IN A ROOM?
+        </h2>
+
+        <p>
+            Contact us or send an enquiry for more information.
+        </p>
+
+        <div class="room-interest-buttons">
+
+            <!-- SEND ENQUIRY -->
+            <a
+                href="enquiry.html"
+                class="room-interest-btn enquiry-room-btn"
+            >
+                <span class="room-btn-icon">✉</span>
+                <span>Send Enquiry</span>
+            </a>
+
+
+            <!-- CONTACT US -->
+            <a
+                href="contact.html"
+                class="room-interest-btn contact-room-btn"
+            >
+                <span class="room-btn-icon">📞</span>
+                <span>Contact Us</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            🏠
+
+            <strong>
+
+                UDAY
+                <span>BOYS HOSTEL</span>
+
+            </strong>
+
+            <small>
+
+                "A Home Away from Home for Young Achievers"
+
+            </small>
+
+        </div>
+
+
+        <div class="footer-navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            |
+
+            <a href="facilities.html">
+                Facilities
+            </a>
+
+            |
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            |
+
+            <a href="complaint.html">
+                Complaints
+            </a>
+
+            |
+
+            <a href="enquiry.html">
+                Enquiry
+            </a>
+
+            |
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            |
+
+            <a href="login.html">
+                Admin Login
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Uday Boys Hostel.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+
+<script src="JS/room.js"></script>
+
+<script src="JS/public.js"></script>
+
+
+</body>
+
+</html>

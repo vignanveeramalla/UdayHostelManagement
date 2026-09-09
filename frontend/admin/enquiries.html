@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Enquiries-Uday Hostel</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>Uday Hostel</h2>
+
+            <p>Management System</p>
+
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="students.html">
+                👨🏻‍🎓 Students
+            </a>
+
+            <a href="rooms.html">
+                🏢 Rooms
+            </a>
+
+            <a href="payments.html">
+                💰 Payments
+            </a>
+
+            <a href="complaints.html">
+                📢 Complaints
+            </a>
+
+            <a href="enquiries.html" class="active">
+                ✉ Enquiries
+            </a>
+
+            <a href="facilities.html">
+                🛠️ Facilities
+            </a>
+
+            <a href="admin.html">
+                👤 Admin
+            </a>
+
+        </nav>
+
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            ➜🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>Enquiries</h1>
+
+                <p>View and respond to enquiries</p>
+
+            </div>
+
+
+            <a href="admin.html" class="admin-info">
+                <span>Admin</span>
+            </a>
+
+        </header>
+
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+
+
+        <!-- ================= ALL ENQUIRIES ================= -->
+
+        <section class="student-section">
+
+
+            <div class="section-header">
+
+                <h2>All Enquiries</h2>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Enquiry</th>
+
+                            <th>Admin Reply</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="enquiryTableBody">
+
+                        <tr>
+
+                            <td colspan="7">
+
+                                Loading enquiries...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= REPLY MODAL ================= -->
+
+<div id="replyModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Reply to Enquiry</h2>
+
+            <span
+                class="close"
+                onclick="closeReplyModal()">
+
+                &times;
+
+            </span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Student Name</label>
+
+            <input
+                type="text"
+                id="replyStudentName"
+                readonly>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="replyEmail"
+                readonly>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Enquiry</label>
+
+            <textarea
+                id="replyOriginalMessage"
+                rows="4"
+                readonly>
+            </textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Your Reply</label>
+
+            <textarea
+                id="replyText"
+                rows="6"
+                placeholder="Type your reply here..."
+                required>
+            </textarea>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                onclick="closeReplyModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="sendReply()">
+
+                📧 Send Email
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="JS/enquiries.js"></script>
+
+</body>
+
+</html>

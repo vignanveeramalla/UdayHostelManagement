@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students-Uday Hostel</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>Uday Hostel</h2>
+                <p>Management System</p>
+            </div>
+
+            <nav>
+
+                <a href="dashboard.html">
+                    🏠 Dashboard
+                </a>
+
+                <a href="students.html" class="active">
+                    👨🏻‍🎓 Students
+                </a>
+
+                <a href="rooms.html">
+                    🏢 Rooms
+                </a>
+
+                <a href="payments.html">
+                    💰 Payments
+                </a>
+
+                <a href="complaints.html">
+                    📢 Complaints
+                </a>
+
+                <a href="enquiries.html">
+                    ✉ Enquiries
+                </a>
+
+                <a href="facilities.html">
+                    🛠️ Facilities
+                </a>
+
+                <a href="admin.html">
+                    👤 Admin
+                </a>
+
+            </nav>
+
+            <button class="logout-button" onclick="logout()">
+                ➜🚪 Logout
+            </button>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div>
+
+                    <h1>Students</h1>
+
+                    <p>Student Management</p>
+
+                </div>
+
+                <a href="admin.html" class="admin-info">
+                    <span>Admin</span>
+                </a>
+
+            </header>
+
+
+            <!-- Message -->
+
+            <div id="message"></div>
+
+
+            <!-- ================= STUDENT TABLE ================= -->
+
+            <section class="student-section">
+
+                <div class="section-header">
+
+                    <h2>All Students</h2>
+
+                    <button
+                        id="addStudentButton"
+                        onclick="showAddStudentForm()">
+
+                        + Add Student
+
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Name</th>
+
+                                <th>Room</th>
+
+                                <th>College</th>
+
+                                <th>Fee</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="studentTableBody">
+
+                            <tr>
+
+                                <td colspan="6">
+                                    Loading students....
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ADD STUDENT FORM ================= -->
+
+<div 
+    id="studentFormContainer" 
+    class="form-container" 
+    style="display: none;">
+
+    <h2 id="studentFormTitle">Add Student</h2>
+
+    <form id="studentForm">
+
+        <label>
+            Student Name
+        </label>
+
+        <input 
+            type="text" 
+            id="studentName" 
+            placeholder="Enter student name" 
+            required>
+
+
+        <label>
+            Room Number
+        </label>
+
+        <input 
+            type="number" 
+            id="roomNo" 
+            placeholder="Enter room number" 
+            required>
+
+
+        <label>
+            College
+        </label>
+
+        <input 
+            type="text" 
+            id="college" 
+            placeholder="Enter college name" 
+            required>
+
+
+        <label>
+            Fee
+        </label>
+
+        <input 
+            type="number" 
+            id="fee" 
+            placeholder="Enter fee" 
+            required>
+
+
+        <label>
+            Address
+        </label>
+
+        <input 
+            type="text" 
+            id="address" 
+            placeholder="Enter address" 
+            required>
+
+
+        <label>
+            Mobile Number
+        </label>
+
+        <input 
+            type="tel" 
+            id="mobile" 
+            placeholder="Enter mobile number" 
+            required>
+
+
+        <label>
+            Joining Date
+        </label>
+
+        <input 
+            type="date" 
+            id="joiningDate" 
+            required>
+
+
+        <button type="submit"  id="studentSubmitButton">
+            Save Student
+        </button>
+
+
+        <button 
+            type="button" 
+            onclick="hideAddStudentForm()">
+
+            Cancel
+
+        </button>
+
+    </form>
+
+</div>
+
+</main>
+ </div>
+
+    <!-- JavaScript -->
+
+    <script src="JS/students.js"></script>
+
+</body>
+
+</html>

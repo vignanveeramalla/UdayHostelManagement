@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin-Uday Hostel</title>
+
+    <link rel="stylesheet"
+          href="CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>Uday Hostel</h2>
+
+            <p>Management System</p>
+
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+
+            <a href="students.html">
+                👨🏻‍🎓 Students
+            </a>
+
+
+            <a href="rooms.html">
+                🏢 Rooms
+            </a>
+
+
+            <a href="payments.html">
+                💰 Payments
+            </a>
+
+
+            <a href="complaints.html">
+                📢 Complaints
+            </a>
+
+
+            <a href="enquiries.html">
+                ✉ Enquiries
+            </a>
+
+
+            <a href="facilities.html">
+                🛠️ Facilities
+            </a>
+
+
+            <a href="admin.html"
+               class="active">
+                👤 Admin
+            </a>
+
+        </nav>
+
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            ➜🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="top-header">
+
+
+            <div>
+
+                <h1>Admin</h1>
+
+                <p>
+                    Admin Management
+                </p>
+
+            </div>
+
+
+            <a href="admin.html" class="admin-info">
+                <span>Admin</span>
+            </a>
+
+        </header>
+
+
+
+        <!-- ================= MESSAGE ================= -->
+
+        <div id="message"></div>
+
+
+
+        <!-- ================= ADMIN DETAILS ================= -->
+
+        <section class="student-section">
+
+
+            <div class="section-header">
+
+
+                <h2>
+                    Admin Details
+                </h2>
+
+
+            </div>
+
+
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Role</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="adminTableBody">
+
+
+                        <tr>
+
+                            <td colspan="5">
+
+                                Loading admin details....
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= UPDATE ADMIN FORM ================= -->
+
+        <div
+            id="adminFormContainer"
+            class="form-container"
+            style="display:none;">
+
+
+            <h2 id="adminFormTitle">
+
+                Update Admin
+
+            </h2>
+
+
+
+            <form id="adminForm">
+
+
+                <input
+                    type="hidden"
+                    id="adminId">
+
+
+
+                <!-- Name -->
+
+                <label>
+
+                    Name
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="adminName"
+                    placeholder="Enter admin name"
+                    required>
+
+
+
+                <!-- Email -->
+
+                <label>
+
+                    Email
+
+                </label>
+
+
+                <input
+                    type="email"
+                    id="adminEmail"
+                    placeholder="Enter admin email"
+                    required>
+
+
+
+                <!-- Update Button -->
+
+                <button
+                    type="submit"
+                    id="adminSubmitButton">
+
+                    Update Admin
+
+                </button>
+
+
+
+                <!-- Cancel -->
+
+                <button
+                    type="button"
+                    onclick="hideAdminForm()">
+
+                    Cancel
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+
+        <!-- ================= CHANGE PASSWORD ================= -->
+
+        <section class="student-history-section">
+
+
+            <div class="section-header">
+
+                <h2>
+
+                    Change Password
+
+                </h2>
+
+            </div>
+
+
+
+            <form id="passwordForm">
+
+
+                <label>
+
+                    Current Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="currentPassword"
+                    placeholder="Enter current password"
+                    required>
+
+
+
+                <label>
+
+                    New Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="Enter new password"
+                    required>
+
+
+
+                <button
+                    type="submit">
+
+                    Change Password
+
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script src="JS/admin.js"></script>
+
+
+</body>
+
+</html>

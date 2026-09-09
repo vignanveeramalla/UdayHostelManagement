@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payments-Uday Hostel</title>
+
+    <link rel="stylesheet"
+          href="CSS/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>Uday Hostel</h2>
+
+            <p>Management System</p>
+
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="students.html">
+                👨🏻‍🎓 Students
+            </a>
+
+            <a href="rooms.html">
+                🏢 Rooms
+            </a>
+
+            <a href="payments.html"
+               class="active">
+                💰 Payments
+            </a>
+
+            <a href="complaints.html">
+                📢 Complaints
+            </a>
+
+            <a href="enquiries.html">
+                ✉ Enquiries
+            </a>
+
+            <a href="facilities.html">
+                🛠️ Facilities
+            </a>
+
+            <a href="admin.html">
+                👤 Admin
+            </a>
+
+        </nav>
+
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            ➜🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>Payments</h1>
+
+                <p>
+                    Payment Management
+                </p>
+
+            </div>
+
+
+            <a href="admin.html" class="admin-info">
+                <span>Admin</span>
+            </a>
+
+        </header>
+
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+
+
+        <!-- ================= PAYMENT TABLE ================= -->
+
+        <section class="student-section">
+
+
+            <div class="section-header">
+
+                <h2>
+                    All Payments
+                </h2>
+
+
+                <button
+                    id="addPaymentButton"
+                    onclick="showAddPaymentForm()">
+
+                    + Add Payment
+
+                </button>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Student ID</th>
+
+                            <th>Amount</th>
+
+                            <th>Payment Method</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="paymentTableBody">
+
+                        <tr>
+
+                            <td colspan="6">
+
+                                Loading payments....
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+        </section>
+
+        
+<!-- ================= MONTHLY PAYMENT TRACKING ================= -->
+
+<section class="student-section">
+
+    <div class="section-header">
+
+        <h2>Monthly Payment Tracking</h2>
+
+    </div>
+
+    <!-- Month Selection -->
+
+    <div class="history-search">
+
+        <label>
+            Select Month
+        </label>
+
+        <input
+            type="month"
+            id="monthlyPaymentMonth">
+
+        <button
+            type="button"
+            onclick="loadMonthlyPayments()">
+
+            Search
+
+        </button>
+
+    </div>
+
+
+    <!-- Monthly Summary -->
+
+    <div
+        id="monthlySummary"
+        class="payment-summary"
+        style="display:none;">
+
+        <div class="summary-card">
+
+            <h3>Total Students</h3>
+
+            <p id="monthlyTotalStudents">0</p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Paid Students</h3>
+
+            <p id="monthlyPaidStudents">0</p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Partial Students</h3>
+
+            <p id="monthlyPartialStudents">0</p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Not Paid</h3>
+
+            <p id="monthlyUnpaidStudents">0</p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Expected Fee</h3>
+
+            <p id="monthlyExpectedFee">₹0</p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Total Collected</h3>
+
+            <p id="monthlyCollected">₹0</p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Total Pending</h3>
+
+            <p id="monthlyPending">₹0</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= UNPAID STUDENTS ================= -->
+
+    <div
+        id="monthlyUnpaidContainer"
+        class="table-container"
+        style="display:none;">
+
+        <h3>Students Not Paid / Partial This Month</h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Student ID</th>
+
+                    <th>Name</th>
+
+                    <th>Room</th>
+
+                    <th>Monthly Fee</th>
+
+                    <th>Paid</th>
+
+                    <th>Balance</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="monthlyUnpaidTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <br>
+
+
+    <!-- ================= MONTHLY PAYMENT HISTORY ================= -->
+
+    <div
+        id="monthlyHistoryContainer"
+        class="table-container"
+        style="display:none;">
+
+        <h3>Monthly Payment History</h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Payment ID</th>
+
+                    <th>Student ID</th>
+
+                    <th>Student Name</th>
+
+                    <th>Amount</th>
+
+                    <th>Payment Date</th>
+
+                    <th>Payment Method</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="monthlyHistoryTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+                    <!-- ================= STUDENT PAYMENT HISTORY ================= -->
+
+<section class="student-history-section">
+
+    <div class="section-header">
+
+        <h2>Student Payment History</h2>
+
+    </div>
+
+    <div class="history-search">
+
+        <label>
+            Student ID
+        </label>
+
+        <input
+            type="number"
+            id="historyStudentId"
+            placeholder="Enter student ID">
+
+        <button
+            type="button"
+            onclick="searchStudentHistory()">
+
+            Search
+
+        </button>
+
+    </div>
+
+
+    <!-- Payment Summary -->
+
+    <div
+        id="paymentSummary"
+        class="payment-summary"
+        style="display:none;">
+
+        <div class="summary-card">
+
+            <h3>Total Fee</h3>
+
+            <p id="historyTotalFee">₹0</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Total Paid</h3>
+
+            <p id="historyTotalPaid">₹0</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Balance</h3>
+
+            <p id="historyBalance">₹0</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Status</h3>
+
+            <p id="historyStatus">-</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Payment History Table -->
+
+    <div
+        id="historyTableContainer"
+        class="table-container"
+        style="display:none;">
+
+        <h3>Payment History</h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Payment Date</th>
+
+                    <th>Amount</th>
+
+                    <th>Payment Method</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+        <!-- ================= ADD PAYMENT FORM ================= -->
+
+        <div
+            id="paymentFormContainer"
+            class="form-container"
+            style="display:none;">
+
+
+            <h2 id="paymentFormTitle">
+
+                Add Payment
+
+            </h2>
+
+
+
+            <form id="paymentForm">
+
+
+                <label>
+
+                    Student ID
+
+                </label>
+
+
+                <input
+                    type="number"
+                    id="studentId"
+                    placeholder="Enter student ID"
+                    required>
+
+
+
+                <label>
+
+                    Amount
+
+                </label>
+
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                    required>
+
+                <label>
+                    Payment Date
+                </label>
+
+                <input
+                    type="date"
+                    id="paymentDate"
+                    required>
+
+                <label>
+
+                    Payment Method
+
+                </label>
+
+
+                <select id="paymentMethod"
+                        required>
+
+                    <option value="">
+                        Select payment method
+                    </option>
+
+                    <option value="CASH">
+                        CASH
+                    </option>
+
+                    <option value="UPI">
+                        UPI
+                    </option>
+
+                    <option value="BANK TRANSFER">
+                        BANK TRANSFER
+                    </option>
+
+                </select>
+
+
+
+                <label>
+
+                    Status
+
+                </label>
+
+
+                <select id="status"
+                        required>
+
+                    <option value="">
+                        Select status
+                    </option>
+
+                    <option value="PAID">
+                        PAID
+                    </option>
+
+                    <option value="PENDING">
+                        PENDING
+                    </option>
+
+                    <option value="PARTIAL">
+                        PARTIAL
+                    </option>
+
+                </select>
+
+
+
+                <button
+                    type="submit"
+                    id="paymentSubmitButton">
+
+                    Save Payment
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="hideAddPaymentForm()">
+
+                    Cancel
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<script src="JS/payments.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Facilities - Uday Boys Hostel</title>
+
+    <link rel="stylesheet"
+          href="CSS/public-style.css">
+
+    <style>
+
+        .public-facilities {
+            padding: 70px 0;
+            background: #f6fbff;
+        }
+
+        .facility-status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .available {
+            background: #e5f8ed;
+            color: #16834c;
+        }
+
+        .unavailable {
+            background: #ffe8e5;
+            color: #d93625;
+        }
+
+        .facility-card {
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .facility-card h3 {
+            font-size: 18px;
+        }
+
+        .facility-card p {
+            line-height: 1.5;
+        }
+
+        .facility-loading {
+            text-align: center;
+            font-size: 18px;
+            padding: 40px;
+        }
+
+        .facility-error {
+            text-align: center;
+            color: #d93625;
+            padding: 40px;
+        }
+
+        .facility-actions {
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .facility-actions .btn {
+            margin: 6px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+    <div class="welcome">
+        Welcome to Uday Boys Hostel
+    </div>
+
+</div>
+
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+
+        <a href="index.html"
+           class="brand">
+
+            <div class="brand-logo">
+                🏠
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+
+                    <span>UDAY</span>
+                    BOYS HOSTEL
+
+                </div>
+
+                <div class="tagline">
+
+                    "A Home Away from Home for Young Achievers"
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+
+            ☰
+
+        </button>
+
+
+
+        <nav id="mainNav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="facilities.html"
+               class="active">
+
+                Facilities
+
+            </a>
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            <a href="complaint.html">
+                Complaints
+            </a>
+
+            <a href="enquiry.html">
+                Enquiry
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= FACILITIES ================= -->
+
+<section class="public-facilities">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>OUR</span> FACILITIES
+
+            <p>
+                Everything you need for a comfortable stay
+            </p>
+
+        </div>
+
+
+
+        <!-- Facilities loaded from backend -->
+
+        <div
+            id="facilityGrid"
+            class="facility-grid">
+
+            <div class="facility-loading">
+
+                Loading facilities...
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="facility-actions">
+
+        <a href="complaint.html"
+        class="facility-action-btn complaint-btn">
+
+        <span class="action-icon">📣</span>
+
+        <span>Raise a Complaint</span>
+
+        <span class="action-arrow">→</span>
+
+        </a>
+
+
+        <a href="enquiry.html"
+        class="facility-action-btn enquiry-btn">
+
+        <span class="action-icon">✉</span>
+
+        <span>Send Enquiry</span>
+
+        <span class="action-arrow">→</span>
+
+        </a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="about-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>WHY</span> CHOOSE UDAY HOSTEL
+
+            <p>
+                A comfortable place to stay, study and grow
+            </p>
+
+        </div>
+
+
+        <div class="facility-grid">
+
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🛏️
+                </div>
+
+                <h3>
+                    Comfortable Rooms
+                </h3>
+
+                <p>
+                    Clean and comfortable accommodation
+                    for students and working professionals.
+                </p>
+
+            </div>
+
+
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Student Friendly
+                </h3>
+
+                <p>
+                    A peaceful environment suitable for
+                    study and personal growth.
+                </p>
+
+            </div>
+
+
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🧹
+                </div>
+
+                <h3>
+                    Clean Environment
+                </h3>
+
+                <p>
+                    Regular cleaning helps maintain a
+                    hygienic living environment.
+                </p>
+
+            </div>
+
+
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Safety & Security
+                </h3>
+
+                <p>
+                    CCTV surveillance and hostel
+                    management focused on resident safety.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            🏠
+
+            <strong>
+
+                UDAY
+                <span>BOYS HOSTEL</span>
+
+            </strong>
+
+            <small>
+
+                "A Home Away from Home for Young Achievers"
+
+            </small>
+
+        </div>
+
+
+        <div class="footer-navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            |
+
+            <a href="facilities.html">
+                Facilities
+            </a>
+
+            |
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            |
+
+            <a href="complaint.html">
+                Complaints
+            </a>
+
+            |
+
+            <a href="enquiry.html">
+                Enquiry
+            </a>
+
+            |
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            |
+
+            <a href="login.html">
+                Admin Login
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Uday Boys Hostel.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+<script src="JS/facilities.js"></script>
+
+<script src="JS/public.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard-Uday Hostel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+
+        <!--sidebar-->
+
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Uday Hostel</h2>
+                <p>Management System</p>
+            </div>
+            <nav>
+                <a href="dashboard.html" class="active">
+                    🏠 Dashboard
+                </a>
+                <a href="students.html">
+                    🧑🏻‍🎓 Students
+                </a>
+                <a href="rooms.html">
+                    🏢 Rooms
+                </a>
+                <a href="payments.html">
+                   💰 Payments
+                </a>
+                <a href="complaints.html">
+                    📢 Complaints
+                </a>
+                <a href="enquiries.html">
+                    ✉ Enquiries
+                </a>
+                <a href="facilities.html">
+                    🛠️ Facilities
+                </a>
+                <a href="admin.html">
+                    👤 Admin
+                </a>
+            </nav>
+            <button class="logout-button" onclick="logout()">
+                ➜🚪 Logout
+            </button>
+        </aside>
+
+        <!--Main Content-->
+        <main class="main-content">
+            <header class="top-header">
+                 <div>
+                     <h1>Dashboard</h1>
+                    <p>Welcome to Uday Hostel Management</p>
+                </div>
+
+                 <a href="admin.html" class="admin-info">
+                    <span>Admin</span>
+                </a>
+            </header>
+
+        <!--Message-->
+        <div id="message"></div>
+
+        <section class="dashboard-cards">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+            <div class="card">
+                <h3>Total Rooms</h3>
+                <p id="totalRooms">0</p>
+            </div>
+            <div class="card">
+                <h3>Occupied Rooms</h3>
+                <p id="totalOccupiedRooms">0</p>
+            </div>
+            <div class="card">
+                <h3>Available Rooms</h3>
+                <p id="totalAvailableRooms">0</p>
+            </div>
+            <div class="card">
+                <h3>Total Fees</h3>
+                <p id="totalFees">₹0</p>
+            </div>
+            <div class="card">
+                <h3>Total Paid</h3>
+                <p id="totalPaid">₹0</p>
+            </div>
+            <div class="card">
+                <h3>Pending Fees</h3>
+                <p id="totalPending">₹0</p>
+            </div>
+            <div class="card">
+                <h3>Total Complaints</h3>
+                <p id="totalComplaints">0</p>
+            </div>
+            <div class="card">
+                <h3>Open Complaints</h3>
+                <p id="openComplaints">0</p>
+            </div>
+            <div class="card">
+                <h3>Pending Enquiries</h3>
+                <p id="pendingEnquiries">0</p>
+            </div>
+            
+        </section>
+        <!-- ================= MONTHLY PAYMENT OVERVIEW ================= -->
+
+<section class="monthly-payment-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 id="monthlyPaymentTitle">
+                Monthly Payment Overview
+            </h2>
+
+            <p>
+                Current month hostel fee collection
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-cards monthly-cards">
+
+        <!-- Expected Fee -->
+
+        <div class="card">
+
+            <h3>Expected Fee</h3>
+
+            <p id="monthlyExpectedFee">
+                ₹0
+            </p>
+
+        </div>
+
+
+        <!-- Total Collected -->
+
+        <div class="card">
+
+            <h3>Total Collected</h3>
+
+            <p id="monthlyCollected">
+                ₹0
+            </p>
+
+        </div>
+
+
+        <!-- Total Pending -->
+
+        <div class="card">
+
+            <h3>Total Pending</h3>
+
+            <p id="monthlyPending">
+                ₹0
+            </p>
+
+        </div>
+
+
+        <!-- Paid Students -->
+
+        <div class="card">
+
+            <h3>Paid Students</h3>
+
+            <p id="monthlyPaidStudents">
+                0
+            </p>
+
+        </div>
+
+
+        <!-- Partial Students -->
+
+        <div class="card">
+
+            <h3>Partial Students</h3>
+
+            <p id="monthlyPartialStudents">
+                0
+            </p>
+
+        </div>
+
+
+        <!-- Unpaid Students -->
+
+        <div class="card">
+
+            <h3>Unpaid Students</h3>
+
+            <p id="monthlyUnpaidStudents">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+        </main>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
