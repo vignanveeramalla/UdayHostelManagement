@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/admins";
+const API_URL = "https://udayhostelmanagement-production.up.railway.app/admins";
 
 
 // ===============================

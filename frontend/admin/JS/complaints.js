@@ -17,7 +17,7 @@ async function loadComplaints()
     try
     {
         const response = await fetch(
-            "http://localhost:8080/complaints",
+            "https://udayhostelmanagement-production.up.railway.app/complaints",
             {
                 method: "GET",
 
@@ -273,7 +273,7 @@ async function saveComplaintStatus()
     {
         const response =
             await fetch(
-                "http://localhost:8080/complaints/"
+                "https://udayhostelmanagement-production.up.railway.app/complaints/"
                 + complaintId
                 + "/status?status="
                 + newStatus,
@@ -359,7 +359,7 @@ async function deleteComplaint(
 
         const response =
             await fetch(
-                "http://localhost:8080/complaints/"
+                "https://udayhostelmanagement-production.up.railway.app/complaints/"
                 + complaintId,
                 {
                     method: "DELETE",
@@ -442,7 +442,7 @@ async function searchComplaintsByStudent()
 
         const response =
             await fetch(
-                "http://localhost:8080/complaints/student/"
+                "https://udayhostelmanagement-production.up.railway.app/complaints/student/"
                 + studentId,
                 {
                     method: "GET",
@@ -512,7 +512,7 @@ async function filterByStatus()
 
         const response =
             await fetch(
-                "http://localhost:8080/complaints/status/"
+                "https://udayhostelmanagement-production.up.railway.app/complaints/status/"
                 + status,
                 {
                     method: "GET",

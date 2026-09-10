@@ -23,7 +23,7 @@ async function loadStudents() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/students",
+            "https://udayhostelmanagement-production.up.railway.app/students",
             {
                 method: "GET",
 
@@ -219,7 +219,7 @@ async function editStudent(studentId) {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/students/" + studentId,
+            "https://udayhostelmanagement-production.up.railway.app/students/" + studentId,
             {
                 method: "GET",
 
@@ -382,7 +382,7 @@ async function deleteStudent(studentId) {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/students/" + studentId,
+            "https://udayhostelmanagement-production.up.railway.app/students/" + studentId,
             {
                 method: "DELETE",
 
@@ -552,7 +552,7 @@ document.getElementById(
 
 
             url =
-                "http://localhost:8080/students";
+                "https://udayhostelmanagement-production.up.railway.app/students";
 
 
             method = "POST";
@@ -576,7 +576,7 @@ document.getElementById(
 
 
             url =
-                "http://localhost:8080/students/"
+                "https://udayhostelmanagement-production.up.railway.app/students/"
                 + editingStudentId;
 
 

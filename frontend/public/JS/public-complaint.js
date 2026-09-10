@@ -1,5 +1,5 @@
 const COMPLAINT_API =
-    "http://localhost:8080/complaints";
+    "https://udayhostelmanagement-production.up.railway.app/complaints";
 
 
 const complaintForm =

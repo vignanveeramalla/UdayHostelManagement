@@ -27,7 +27,7 @@ async function loadRooms() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/rooms",
+            "https://udayhostelmanagement-production.up.railway.app/rooms",
             {
                 method: "GET",
 
@@ -175,7 +175,7 @@ async function getRoomAvailability(roomNo) {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/rooms/"
+            "https://udayhostelmanagement-production.up.railway.app/rooms/"
             + roomNo
             + "/availability",
             {
@@ -336,7 +336,7 @@ async function editRoom(roomNo) {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/rooms/"
+            "https://udayhostelmanagement-production.up.railway.app/rooms/"
             + roomNo,
             {
                 method: "GET",
@@ -514,7 +514,7 @@ document.getElementById(
 
 
             url =
-                "http://localhost:8080/rooms";
+                "https://udayhostelmanagement-production.up.railway.app/rooms";
 
 
             method = "POST";
@@ -534,7 +534,7 @@ document.getElementById(
 
 
             url =
-                "http://localhost:8080/rooms/"
+                "https://udayhostelmanagement-production.up.railway.app/rooms/"
                 + editingRoomNo;
 
 
@@ -703,7 +703,7 @@ async function deleteRoom(roomNo) {
 
         const response =
             await fetch(
-                "http://localhost:8080/rooms/"
+                "https://udayhostelmanagement-production.up.railway.app/rooms/"
                 + roomNo,
                 {
 

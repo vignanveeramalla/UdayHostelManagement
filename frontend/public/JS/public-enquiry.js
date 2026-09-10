@@ -1,5 +1,5 @@
 const ENQUIRY_API =
-    "http://localhost:8080/enquiries";
+    "https://udayhostelmanagement-production.up.railway.app/enquiries";
 
 
 const enquiryForm =

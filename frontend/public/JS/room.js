@@ -51,7 +51,7 @@ async function loadRooms() {
 
 
         const response = await fetch(
-            "http://localhost:8080/rooms",
+            "https://udayhostelmanagement-production.up.railway.app/rooms",
             {
                 method: "GET",
 

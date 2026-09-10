@@ -17,7 +17,7 @@ async function loadEnquiries() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/enquiries",
+            "https://udayhostelmanagement-production.up.railway.app/enquiries",
             {
                 method: "GET",
                 headers: {
@@ -150,7 +150,7 @@ async function replyEnquiry(enquiryId) {
 
         // Get the complete enquiry
         const response = await fetch(
-            `http://localhost:8080/enquiries/${enquiryId}`,
+            `https://udayhostelmanagement-production.up.railway.app/enquiries/${enquiryId}`,
             {
                 method: "GET",
                 headers: {
@@ -253,7 +253,7 @@ async function sendReply() {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/enquiries/${enquiryId}/reply`,
+            `https://udayhostelmanagement-production.up.railway.app/enquiries/${enquiryId}/reply`,
             {
                 method: "PUT",
 
@@ -353,7 +353,7 @@ async function updateStatus(enquiryId) {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/enquiries/${enquiryId}/status?status=${newStatus}`,
+            `https://udayhostelmanagement-production.up.railway.app/enquiries/${enquiryId}/status?status=${newStatus}`,
             {
                 method: "PUT",
 
@@ -419,7 +419,7 @@ async function deleteEnquiry(enquiryId) {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/enquiries/${enquiryId}`,
+            `https://udayhostelmanagement-production.up.railway.app/enquiries/${enquiryId}`,
             {
                 method: "DELETE",
 

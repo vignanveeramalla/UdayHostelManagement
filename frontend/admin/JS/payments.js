@@ -45,7 +45,7 @@ async function loadPayments() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/payments",
+            "https://udayhostelmanagement-production.up.railway.app/payments",
             {
                 method: "GET",
 
@@ -211,7 +211,7 @@ async function editPayment(paymentId) {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/payments/${paymentId}`,
+            `https://udayhostelmanagement-production.up.railway.app/payments/${paymentId}`,
             {
                 method: "GET",
 
@@ -346,7 +346,7 @@ document.getElementById("paymentForm").addEventListener(
 
 
         let url =
-            "http://localhost:8080/payments";
+            "https://udayhostelmanagement-production.up.railway.app/payments";
 
         let method = "POST";
 
@@ -358,7 +358,7 @@ document.getElementById("paymentForm").addEventListener(
         if (editingPaymentId !== null) {
 
             url =
-                `http://localhost:8080/payments/${editingPaymentId}`;
+                `https://udayhostelmanagement-production.up.railway.app/payments/${editingPaymentId}`;
 
             method = "PUT";
 
@@ -494,7 +494,7 @@ async function deletePayment(paymentId) {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/payments/${paymentId}`,
+            `https://udayhostelmanagement-production.up.railway.app/payments/${paymentId}`,
             {
                 method: "DELETE",
 
@@ -574,7 +574,7 @@ async function searchStudentHistory()
     {
         // Get payment history
         const historyResponse = await fetch(
-            "http://localhost:8080/payments/student/" + studentId,
+            "https://udayhostelmanagement-production.up.railway.app/payments/student/" + studentId,
             {
                 method: "GET",
 
@@ -683,7 +683,7 @@ async function loadPaymentSummary(studentId)
     try
     {
         const response = await fetch(
-            "http://localhost:8080/payments/summary/" + studentId,
+            "https://udayhostelmanagement-production.up.railway.app/payments/summary/" + studentId,
             {
                 method: "GET",
 
@@ -802,7 +802,7 @@ async function loadMonthlyPayments() {
 
         const summaryResponse =
             await fetch(
-                `http://localhost:8080/payments/monthly-summary?year=${year}&month=${month}`,
+                `https://udayhostelmanagement-production.up.railway.app/payments/monthly-summary?year=${year}&month=${month}`,
                 {
                     method: "GET",
 
@@ -882,7 +882,7 @@ async function loadMonthlyPayments() {
 
         const unpaidResponse =
             await fetch(
-                `http://localhost:8080/payments/monthly-unpaid?year=${year}&month=${month}`,
+                `https://udayhostelmanagement-production.up.railway.app/payments/monthly-unpaid?year=${year}&month=${month}`,
                 {
                     method: "GET",
 
@@ -993,7 +993,7 @@ async function loadMonthlyPayments() {
 
         const historyResponse =
             await fetch(
-                `http://localhost:8080/payments/monthly-history?year=${year}&month=${month}`,
+                `https://udayhostelmanagement-production.up.railway.app/payments/monthly-history?year=${year}&month=${month}`,
                 {
                     method: "GET",
 

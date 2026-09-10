@@ -15,7 +15,7 @@ async function loadDashboard()
     try
     {
         const response = await fetch(
-            "http://localhost:8080/dashboard",
+            "https://udayhostelmanagement-production.up.railway.app/dashboard",
             {
                 method: "GET",
 
@@ -156,7 +156,7 @@ async function loadMonthlyPaymentSummary()
 
 
         const response = await fetch(
-            "http://localhost:8080/payments/monthly-summary"
+            "https://udayhostelmanagement-production.up.railway.app/payments/monthly-summary"
             + "?year=" + year
             + "&month=" + month,
             {
