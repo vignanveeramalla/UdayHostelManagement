@@ -94,14 +94,6 @@ public class SecurityConfig
                 ).permitAll()
 
                 // =====================================
-                // ADMIN REGISTRATION - TEMPORARY
-                // =====================================
-
-                .requestMatchers(
-                		HttpMethod.POST,
-                		"/admins/register"
-                		).permitAll()
-                // =====================================
                 // ADMIN APIs
                 // =====================================
 
