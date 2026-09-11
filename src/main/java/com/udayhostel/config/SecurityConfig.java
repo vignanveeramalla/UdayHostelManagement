@@ -93,7 +93,14 @@ public class SecurityConfig
                     "/rooms"
                 ).permitAll()
 
+                // =====================================
+                // ADMIN REGISTRATION - TEMPORARY
+                // =====================================
 
+                .requestMatchers(
+                		HttpMethod.POST,
+                		"/admins/register"
+                		).permitAll()
                 // =====================================
                 // ADMIN APIs
                 // =====================================
