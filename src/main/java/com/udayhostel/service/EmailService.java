@@ -29,7 +29,7 @@ public class EmailService
 
         String jsonBody =
                 "{"
-                + "\"from\":\"Uday Hostel Management <onboarding@resend.dev>\","
+                + "\"from\":\"Uday Hostel Management <noreply@udayboyshostel.com>\","
                 + "\"to\":[\"" + escapeJson(toEmail) + "\"],"
                 + "\"subject\":\"" + escapeJson(subject) + "\","
                 + "\"text\":\"" + escapeJson(text) + "\""
