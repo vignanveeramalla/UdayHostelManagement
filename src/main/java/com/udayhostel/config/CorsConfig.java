@@ -17,12 +17,13 @@ public class CorsConfig
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(Arrays.asList(
-        	    "http://127.0.0.1:5501",
-        	    "http://localhost:5501",
-        	    "https://uday-boys-hostel.vercel.app",
-        	    "https://udayboyshostel.com",
-        	    "https://www.udayboyshostel.com"
-        	));
+                "http://127.0.0.1:5501",
+                "http://localhost:5501",
+                "https://uday-boys-hostel.vercel.app",
+                "https://udayboyshostel.com",
+                "https://www.udayboyshostel.com",
+                "https://uday-boys-hostel-management.vercel.app"
+        ));
 
         configuration.setAllowedMethods(Arrays.asList(
                 "GET",
