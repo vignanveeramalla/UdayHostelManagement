@@ -121,7 +121,7 @@ The system helps hostel management handle students, rooms, monthly hostel paymen
 - Hibernate
 - Spring Security
 - JWT Authentication
-- Spring Boot Mail
+- Resend Mail API
 - Maven
 
 ### Database
@@ -164,4 +164,167 @@ Client / Frontend
     Entity
        |
        v
- MySQL Database
+ MySQL Database     
+ ```                                                                               
+
+
+## Live Application
+
+### Public Website
+
+https://udayboyshostel.com/
+
+### Admin Management Portal
+
+https://uday-boys-hostel-management.vercel.app/
+
+### Backend API
+
+https://udayhostelmanagement-production.up.railway.app/
+
+## Deployment
+
+- Frontend: Vercel
+- Backend: Railway
+- Database: MySQL
+- Email Service: Resend API
+- Source Code: GitHub
+
+## Authentication
+
+The application uses JWT-based authentication for administrator access.
+
+Public users can:
+
+- View hostel information
+- View facilities
+- View rooms
+- Submit complaints
+- Submit enquiries
+- Contact the hostel
+
+Administrators can securely manage:
+
+- Students
+- Rooms
+- Payments
+- Complaints
+- Enquiries
+- Facilities
+- Dashboard statistics
+
+## API Security
+
+Admin management APIs are protected using Spring Security and JWT authentication.
+
+Public endpoints are available for selected operations such as:
+
+- Public room viewing
+- Public facilities viewing
+- Complaint submission
+- Enquiry submission
+- Administrator login
+
+
+## REST API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Access |
+|---|---|---|
+| POST | `/auth/login` | Public |
+
+### Students
+
+| Method | Endpoint | Access |
+|---|---|---|
+| GET | `/students` | Admin |
+| GET | `/students/{studentId}` | Admin |
+| POST | `/students` | Admin |
+| PUT | `/students/{studentId}` | Admin |
+| DELETE | `/students/{studentId}` | Admin |
+
+### Rooms
+
+| Method | Endpoint | Access |
+|---|---|---|
+| GET | `/rooms` | Public |
+| GET | `/rooms/{roomNo}` | Admin |
+| POST | `/rooms` | Admin |
+| PUT | `/rooms/{roomNo}` | Admin |
+| DELETE | `/rooms/{roomNo}` | Admin |
+
+### Payments
+
+| Method | Endpoint | Access |
+|---|---|---|
+| GET | `/payments` | Admin |
+| GET | `/payments/{paymentId}` | Admin |
+| POST | `/payments` | Admin |
+| PUT | `/payments/{paymentId}` | Admin |
+| DELETE | `/payments/{paymentId}` | Admin |
+| GET | `/payments/monthly-summary` | Admin |
+| GET | `/payments/monthly-unpaid` | Admin |
+| GET | `/payments/monthly-history` | Admin |
+
+### Complaints
+
+| Method | Endpoint | Access |
+|---|---|---|
+| POST | `/complaints` | Public |
+| GET | `/complaints` | Admin |
+| PUT | `/complaints/{complaintId}` | Admin |
+| DELETE | `/complaints/{complaintId}` | Admin |
+
+### Enquiries
+
+| Method | Endpoint | Access |
+|---|---|---|
+| POST | `/enquiries` | Public |
+| GET | `/enquiries` | Admin |
+| PUT | `/enquiries/{enquiryId}/reply` | Admin |
+| DELETE | `/enquiries/{enquiryId}` | Admin |
+
+### Facilities
+
+| Method | Endpoint | Access |
+|---|---|---|
+| GET | `/facilities` | Public |
+| POST | `/facilities` | Admin |
+| PUT | `/facilities/{facilityId}` | Admin |
+| DELETE | `/facilities/{facilityId}` | Admin |
+
+### Dashboard
+
+| Method | Endpoint | Access |
+|---|---|---|
+| GET | `/dashboard/**` | Admin |
+
+
+## Project Structure
+
+```text
+UdayHostelManagement
+|
++-- src
+|   +-- main
+|       +-- java
+|       |   +-- com.udayhostel
+|       |       +-- controller
+|       |       +-- service
+|       |       +-- repository
+|       |       +-- entity
+|       |       +-- security
+|       |       +-- config
+|       |
+|       +-- resources
+|           +-- application.properties
+|
++-- frontend
+|   +-- public
+|   +-- admin
+|
++-- pom.xml
++-- README.md
++-- .env.example
+```
