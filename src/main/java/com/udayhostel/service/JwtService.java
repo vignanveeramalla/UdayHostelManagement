@@ -45,11 +45,26 @@ public class JwtService
 				   .getSubject();
 	}
 	
-	//Validate JWT
-	public boolean isTokenValid(String token,org.springframework.security.core.userdetails.UserDetails userDetails) 
+	public boolean isTokenValid(
+	        String token,
+	        org.springframework.security.core.userdetails.UserDetails userDetails)
 	{
-		String username=extractUsername(token);
-		
-		return username.equals(userDetails.getUsername());
+	    String username = extractUsername(token);
+
+	    return username.equals(userDetails.getUsername())
+	            && !isTokenExpired(token);
 	}
+
+	private boolean isTokenExpired(String token)
+	{
+	    Date expiration = Jwts.parser()
+	            .verifyWith(getKey())
+	            .build()
+	            .parseSignedClaims(token)
+	            .getPayload()
+	            .getExpiration();
+
+	    return expiration.before(new Date());
+	}
+	
 }

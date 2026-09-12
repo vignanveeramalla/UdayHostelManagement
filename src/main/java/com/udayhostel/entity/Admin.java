@@ -2,6 +2,8 @@ package com.udayhostel.entity;
 
 import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="admin")
 public class Admin 
@@ -14,6 +16,8 @@ public class Admin
 	
 	@Column(unique=true,nullable=false)
 	private String email;
+	
+	@JsonIgnore
 	private String password;
 	private String role;
 	
