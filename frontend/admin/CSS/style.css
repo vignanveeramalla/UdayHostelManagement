@@ -769,180 +769,422 @@ table button
 .monthly-cards {
     margin-top: 20px;
 }
-* {
+/* ===============================
+   ADMIN MOBILE RESPONSIVE
+   =============================== */
+
+@media (max-width: 900px)
+{
+    .dashboard-layout
+    {
+        flex-direction: column;
+    }
+
+    .sidebar
+    {
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
+        position: relative;
+    }
+
+    .logo
+    {
+        margin-bottom: 15px;
+    }
+
+    .logo h2
+    {
+        font-size: 24px;
+        margin-bottom: 3px;
+    }
+
+    .logo p
+    {
+        font-size: 12px;
+    }
+
+    .sidebar nav a
+    {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .sidebar nav a
+    {
+        padding: 9px;
+        font-size: 14px;
+    }
+
+    .logout-button
+    {
+        margin-top: 15px;
+    }
+
+    .main-content
+    {
+        width: 100%;
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
+
+    .top-header
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .top-header h1
+    {
+        font-size: 28px;
+    }
+
+    .dashboard-cards
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .payment-summary
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .complaint-filters
+    {
+        align-items: stretch;
+    }
+
+    .complaint-filters div
+    {
+        width: 100%;
+    }
+
+    .complaint-filters input,
+    .complaint-filters select
+    {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .history-search
+    {
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+
+    .history-search input
+    {
+        width: 100%;
+    }
+
+    .modal-content
+    {
+        width: auto;
+        max-width: calc(100% - 30px);
+        margin: 8% 15px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .main-content
+    {
+        padding: 15px 10px;
+    }
+
+    .top-header h1
+    {
+        font-size: 24px;
+    }
+
+    .top-header p
+    {
+        font-size: 14px;
+    }
+
+    .admin-info
+    {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .dashboard-cards
+    {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card
+    {
+        padding: 18px;
+    }
+
+    .card h3
+    {
+        font-size: 16px;
+    }
+
+    .card p
+    {
+        font-size: 26px;
+    }
+
+    .student-section,
+    .student-history-section,
+    .form-container
+    {
+        padding: 15px;
+    }
+
+    .section-header h2,
+    .form-container h2
+    {
+        font-size: 20px;
+    }
+
+    table
+    {
+        min-width: 650px;
+    }
+
+    th,
+    td
+    {
+        padding: 9px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .payment-summary
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card
+    {
+        padding: 15px;
+    }
+
+    .complaint-filters
+    {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .modal-content
+    {
+        max-width: calc(100% - 20px);
+        margin: 5% 10px;
+        padding: 15px;
+    }
+
+    .modal-header h2
+    {
+        font-size: 20px;
+    }
+
+    .modal-actions
+    {
+        flex-direction: column;
+    }
+
+    .modal-actions button
+    {
+        width: 100%;
+    }
+
+    .login-container
+    {
+        width: calc(100% - 20px);
+        margin: 40px auto;
+        padding: 30px 20px;
+    }
+
+    .login-container h1
+    {
+        font-size: 28px;
+    }
+
+    .login-container h2
+    {
+        font-size: 21px;
+        margin-bottom: 30px;
+    }
+
+    .login-row
+    {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .login-row label
+    {
+        width: auto;
+    }
+}
+/* ===============================
+   ADMIN INDEX / WELCOME PAGE
+   Scoped so it does NOT affect
+   dashboard or other admin pages
+   =============================== */
+
+body:has(.page-container)
+{
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+.page-container
+{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #eaf6ff, #f8fbff);
-    color: #073b70;
-}
-
-/* Main container */
-
-.page-container {
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
-}
-
-/* Login card */
-
-.login-card {
+.page-container .login-card
+{
     width: 100%;
-    max-width: 500px;
-
-    background: white;
-
-    padding: 50px 45px;
-
+    max-width: 520px;
+    background: #ffffff;
+    padding: 45px 40px;
     text-align: center;
-
-    border-radius: 18px;
-
-    box-shadow: 0 10px 35px rgba(0, 50, 100, 0.15);
-
-    border-top: 6px solid #ff4b16;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
 }
 
-/* Logo */
-
-.logo {
-    width: 85px;
-    height: 85px;
-
-    margin: 0 auto 25px;
-
+.page-container .logo
+{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background: #e8f4ff;
-
+    background: #eef4f8;
+    border: 2px solid #1f2937;
     border-radius: 50%;
-
-    font-size: 42px;
-
-    border: 3px solid #0b4a83;
+    font-size: 38px;
+    box-sizing: border-box;
 }
 
-/* Heading */
-
-.login-card h1 {
+.page-container .login-card h1
+{
+    margin: 0 0 5px;
+    color: #1f2937;
     font-size: 32px;
     font-weight: 700;
-
-    color: #073b70;
-
-    margin-bottom: 5px;
 }
 
-.login-card h2 {
-    font-size: 22px;
+.page-container .login-card h2
+{
+    margin: 0 0 18px;
+    color: #374151;
+    font-size: 21px;
     font-weight: 600;
-
-    color: #ff4b16;
-
-    margin-bottom: 20px;
 }
 
-/* Description */
-
-.login-card p {
-    color: #666;
-
+.page-container .login-card p
+{
+    margin: 0 0 28px;
+    color: #6b7280;
     font-size: 15px;
-
     line-height: 1.6;
-
-    margin-bottom: 30px;
 }
 
-/* Login button */
-
-.admin-btn {
+.page-container .admin-btn
+{
     display: inline-block;
-
     width: 100%;
-
-    padding: 15px 20px;
-
-    background: #073f78;
-
-    color: white;
-
+    padding: 13px 20px;
+    background: #1f2937;
+    color: #ffffff;
     text-decoration: none;
-
-    border-radius: 8px;
-
+    border: none;
+    border-radius: 6px;
     font-size: 16px;
-
     font-weight: 600;
-
-    transition: all 0.3s ease;
-
-    box-shadow: 0 5px 15px rgba(7, 63, 120, 0.25);
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
 }
 
-.admin-btn:hover {
-    background: #ff4b16;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 18px rgba(255, 75, 22, 0.25);
+.page-container .admin-btn:hover
+{
+    background: #374151;
 }
 
-/* Footer */
-
-.footer-text {
-    margin-top: 30px;
-
-    padding-top: 20px;
-
-    border-top: 1px solid #eee;
-
-    color: #073b70;
-
+.page-container .footer-text
+{
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e7eb;
+    color: #374151;
     font-size: 14px;
 }
 
-.footer-text span {
+.page-container .footer-text span
+{
     font-weight: 600;
 }
 
-.footer-text small {
-    color: #888;
-
+.page-container .footer-text small
+{
+    color: #6b7280;
     font-size: 12px;
 }
 
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    .login-card {
-        padding: 40px 25px;
+@media (max-width: 600px)
+{
+    .page-container
+    {
+        padding: 20px 12px;
     }
 
-    .login-card h1 {
+    .page-container .login-card
+    {
+        padding: 35px 22px;
+        border-radius: 12px;
+    }
+
+    .page-container .logo
+    {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+        margin-bottom: 18px;
+    }
+
+    .page-container .login-card h1
+    {
         font-size: 27px;
     }
 
-    .login-card h2 {
+    .page-container .login-card h2
+    {
         font-size: 19px;
     }
 
-    .logo {
-        width: 75px;
-        height: 75px;
-        font-size: 35px;
+    .page-container .login-card p
+    {
+        font-size: 14px;
     }
 }
